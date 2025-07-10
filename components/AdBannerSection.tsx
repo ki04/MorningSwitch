@@ -1,57 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Colors } from '../constants/Colors';
-import { useColorScheme } from '../hooks/useColorScheme';
+import { StyleSheet, Text, View } from 'react-native';
 
-interface AdBannerSectionProps {
-  onAdPress?: () => void;
-  backgroundColor?: string;
-}
-
-export function AdBannerSection({ onAdPress, backgroundColor }: AdBannerSectionProps) {
-  const colorScheme = useColorScheme();
-  const colors = Colors[colorScheme ?? 'light'];
-  const insets = useSafeAreaInsets();
-
+export function AdBannerSection() {
   return (
-    <View style={[styles.adBanner, { backgroundColor: backgroundColor ?? colors.background, paddingBottom: insets.bottom }]}> 
-      <TouchableOpacity 
-        style={[styles.adContainer, { backgroundColor: colors.tint }]}
-        onPress={onAdPress}
-        activeOpacity={0.8}
-      >
-        <Text style={[styles.adText, { color: '#fff' }]}>광고 배너 영역</Text>
-        <Text style={[styles.adSubText, { color: '#fff' }]}>탭하여 더 자세히 보기</Text>
-      </TouchableOpacity>
+    <View style={styles.adBanner}>
+      {/* 실제 광고 컴포넌트가 이 자리에 들어갈 예정 */}
+      <View style={styles.placeholder}>
+        <Text style={styles.placeholderText}>여기에 광고가 들어갑니다</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   adBanner: {
+    width: '100%',
+    height: 90, // 광고 영역 높이 고정
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+  placeholder: {
     flex: 1,
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#2196f3', // 임시 파란색
     justifyContent: 'center',
     alignItems: 'center',
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: '#e0e0e0',
   },
-  adContainer: {
-    width: '90%',
-    height: '95%',
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-  },
-  adText: {
-    fontSize: 16,
-    fontWeight: '600',
-    marginBottom: 4,
-  },
-  adSubText: {
-    fontSize: 12,
-    opacity: 0.8,
+  placeholderText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 }); 

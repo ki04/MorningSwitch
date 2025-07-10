@@ -15,29 +15,36 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
+        headerShown: true, // 네이티브 헤더 사용
+        headerTitle: 'MorningSwitch', // 앱 이름 고정
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
-            // Use a transparent background on iOS to show the blur effect
             position: 'absolute',
           },
           default: {},
         }),
       }}>
       <Tabs.Screen
-        name="index"
+        name="plant"
         options={{
-          title: '레이아웃',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: '식물키우기',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="leaf.fill" color={color} />, // 적절한 아이콘
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="letter"
         options={{
-          title: '커스텀',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: '편지',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="envelope.fill" color={color} />, // 적절한 아이콘
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: '환경설정',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="gearshape.fill" color={color} />, // 적절한 아이콘
         }}
       />
     </Tabs>
