@@ -17,6 +17,9 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: true, // 네이티브 헤더 사용
         headerTitle: 'MorningSwitch', // 앱 이름 고정
+        headerTitleStyle: {
+          fontSize: 28, // 글자 크기만 크게
+        },
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
@@ -29,21 +32,21 @@ export default function TabLayout() {
       <Tabs.Screen
         name="letter"
         options={{
-          title: '편지',
+          title: 'Letter',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="envelope.fill" color={color} />, // 적절한 아이콘
         }}
       />
       <Tabs.Screen
         name="plant"
         options={{
-          title: '식물키우기',
+          title: 'Growth',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="leaf.fill" color={color} />, // 적절한 아이콘
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: '환경설정',
+          title: 'Settings',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="gearshape.fill" color={color} />, // 적절한 아이콘
         }}
       />

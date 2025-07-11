@@ -6,7 +6,7 @@ import { ScrollView, Text, View } from 'react-native';
 export default function PlantScreen() {
   return (
     <MainLayout>
-      <ScrollView style={CommonStyles.container}>
+      <ScrollView contentContainerStyle={CommonStyles.container}>
         <View style={CommonStyles.section}>
           <Text style={CommonStyles.sectionTitle}>식물 키우기</Text>
           <Text style={CommonStyles.description}>
