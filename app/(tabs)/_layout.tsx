@@ -27,17 +27,17 @@ export default function TabLayout() {
         }),
       }}>
       <Tabs.Screen
-        name="plant"
-        options={{
-          title: '식물키우기',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="leaf.fill" color={color} />, // 적절한 아이콘
-        }}
-      />
-      <Tabs.Screen
         name="letter"
         options={{
           title: '편지',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="envelope.fill" color={color} />, // 적절한 아이콘
+        }}
+      />
+      <Tabs.Screen
+        name="plant"
+        options={{
+          title: '식물키우기',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="leaf.fill" color={color} />, // 적절한 아이콘
         }}
       />
       <Tabs.Screen
