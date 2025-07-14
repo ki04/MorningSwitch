@@ -1,6 +1,5 @@
 import React, { ReactElement, ReactNode, isValidElement } from 'react';
 import { ScrollView, ScrollViewProps, StyleSheet, View } from 'react-native';
-import { AdBannerSection } from './AdBannerSection';
 
 const TAB_BAR_HEIGHT = 60;
 const AD_BANNER_HEIGHT = 90;
@@ -23,15 +22,13 @@ export function MainLayout({ children }: MainLayoutProps) {
           ? React.cloneElement(children as ReactElement<ScrollViewProps>, {
               contentContainerStyle: [
                 (children as ReactElement<ScrollViewProps>).props.contentContainerStyle,
-                { paddingBottom: AD_BANNER_HEIGHT + TAB_BAR_HEIGHT },
+                // 광고 높이 padding 제거
               ],
             })
-          : <View style={{ paddingBottom: AD_BANNER_HEIGHT + TAB_BAR_HEIGHT }}>{children}</View>
+          : <View>{children}</View>
         }
       </View>
-      <View style={styles.adBannerFixed}>
-        <AdBannerSection />
-      </View>
+      {/* 광고배너 완전 제거 */}
     </View>
   );
 }

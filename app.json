@@ -8,6 +8,7 @@
     "scheme": "morningswitch",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "jsEngine": "jsc",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.kijeong.MorningSwitch",
@@ -36,6 +37,20 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "expo-firebase-core",
+        {
+          "config": {
+            "apiKey": "AIzaSyCypOTcA3XGumte3OUzpN2ZflmJmXtHlI8",
+            "authDomain": "morning-switch-app-60505.firebaseapp.com",
+            "projectId": "morning-switch-app-60505",
+            "storageBucket": "morning-switch-app-60505.appspot.com",
+            "messagingSenderId": "23756271152",
+            "appId": "1:23756271152:web:942a5bcecaf6775556c7f5",
+            "measurementId": "G-M3CPBXR7B9"
+          }
         }
       ]
     ],

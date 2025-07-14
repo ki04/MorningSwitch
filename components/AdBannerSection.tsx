@@ -15,7 +15,7 @@ export function AdBannerSection() {
 const styles = StyleSheet.create({
   adBanner: {
     width: '100%',
-    height: 90, // 광고 영역 높이 고정
+    height: 50, // 광고 영역 높이 고정(축소)
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',

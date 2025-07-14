@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { ActivityIndicator, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCypOTcA3XGumte3OUzpN2ZflmJmXtHlI8",
@@ -55,23 +55,27 @@ export default function LetterScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      {!opened ? (
-        <TouchableOpacity style={styles.center} onPress={handleOpen} activeOpacity={0.8}>
-          <Image source={envelopeImage} style={styles.image} resizeMode="contain" />
-          <Text style={styles.title}>응원메세지가 도착했어요!</Text>
-          <Text style={styles.desc}>(화면을 터치해 편지를 확인하세요)</Text>
-        </TouchableOpacity>
-      ) : loading ? (
-        <ActivityIndicator size="large" color="#888" />
-      ) : error ? (
-        <Text style={styles.error}>{error}</Text>
-      ) : (
-        <TouchableOpacity style={styles.letterBox} onPress={() => { setOpened(false); setLetter(null); setError(null); }} activeOpacity={0.8}>
-          <Text style={styles.letterText}>{letter}</Text>
-        </TouchableOpacity>
-      )}
-    </View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+      <View style={[styles.container, { paddingBottom: 90 }]}> {/* 광고 높이만큼 여백 */}
+        {/* 기존 편지 UI */}
+        {!opened ? (
+          <TouchableOpacity style={styles.center} onPress={handleOpen} activeOpacity={0.8}>
+            <Image source={envelopeImage} style={styles.image} resizeMode="contain" />
+            <Text style={styles.title}>응원메세지가 도착했어요!</Text>
+            <Text style={styles.desc}>(화면을 터치해 편지를 확인하세요)</Text>
+          </TouchableOpacity>
+        ) : loading ? (
+          <ActivityIndicator size="large" color="#888" />
+        ) : error ? (
+          <Text style={styles.error}>{error}</Text>
+        ) : (
+          <TouchableOpacity style={styles.letterBox} onPress={() => { setOpened(false); setLetter(null); setError(null); }} activeOpacity={0.8}>
+            <Text style={styles.letterText}>{letter}</Text>
+          </TouchableOpacity>
+        )}
+      </View>
+      {/* 광고 컴포넌트 제거 */}
+    </SafeAreaView>
   );
 }
 
